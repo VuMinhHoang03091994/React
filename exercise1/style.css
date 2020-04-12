@@ -1,0 +1,62 @@
+.div_tong {
+    height: 600px;
+    background-color: #726869;
+    margin: 20px;
+}
+/* phần chữ review */
+#review {
+    padding-top: 13px;
+    text-align: center;
+    color: #F6B50A;
+}
+/* phần div_top */
+#logo img{
+    float: left;
+    padding-top: 18px;
+}
+.div_top {
+    width: 80%;
+    height: 50px;
+    float: left;
+    background-color: white;
+    margin-left: 10%;
+}
+/* phần div bottom */
+.div_bottom {
+    float: left;
+    margin-left: 10%;
+    background: url(images/background_bottom.jpg);
+    height: 455px;
+    width: 80%;
+}
+/*  */
+/*  */
+
+#menu ul {
+    margin-top: 26px;
+    float: right;
+    list-style: none;
+}
+
+#menu ul li {
+    width: 73px;
+    text-align: center;
+    float: left;
+    margin-right: 15px;
+    position: relative;
+    font-size: 14px;
+}
+#menu ul li a:hover {
+    color: #000;
+}
+#menu ul li a{
+    display: block;
+    text-decoration: none;
+    color:#696969;
+}
+/* xinchao */
+.xinchao {
+    padding-top: 250px;
+    text-align: center;
+    color: #ffff;
+}

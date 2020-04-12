@@ -1,0 +1,26 @@
+.div_tong {
+    height: 590px;
+    background-color: #A9D7D1;
+    margin: 20px;
+}
+.div_tong h1{
+    padding-top: 12px;
+    text-align: center;
+    color: #373420;
+}
+.div_con{
+    width: 90%;
+    height: 519px;
+    margin-left: 5%;
+    background-color: white;
+}
+.div_con p{
+    text-align: center;
+}
+#fl_right {
+    padding-top: 30px;
+    float: right;
+}
+.div_nhap{
+    margin-left: 350px;
+}
