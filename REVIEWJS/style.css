@@ -69,3 +69,8 @@ header {
     padding:5px;
     margin:5px;
 }
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}

@@ -47,25 +47,19 @@ function addInput(input){
     localStorage.setItem('inputList', JSON.stringify(inputs));
 }
 
-
-
-function removeItem(){
-    // const closeItem = document.querySelectorAll('.closeItem');
-    // console.log(closeItem)
-
-    // inputList.splice(1,1);
-    // document.getElementById("listInput").innerHTML = inputList;
-    let list =[];
-    list = getInputs();
-
-    var allItem= document.getElementsByTagName('li');
-    var btn = document.getElementsByClassName('closeItem');
-    for (let i=0;i<btn.length;i++){
-        for(let j =0;j<list.length;j++){
-            if(btn[i]==list[j])
-                btn[i].onClick= list.splice(j,1);
-                console.log(list);
-        }
+function deleteItem() {
+    let btnClose = document.getElementsByClassName('.closeItem');
+    for (let i = 0; i < btnClose.length; i++) {
+        btnClose[i].onclick = removeItem(i);
     }
+}
+
+function removeItem(i) {
+    let list = JSON.parse(localStorage.getItem('inputList'));
+    //list nay la cai mang
+    //0 1 2 3 4 splice(index ,số bước nhảy để xoa)
+
+    list.splice(i - 1, 1); //tai day mang mơi da xoa
+    localStorage.setItem('inputList', JSON.stringify(list));// luu lai mang mơi
     location.reload();
-    }
+}
