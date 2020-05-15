@@ -15,5 +15,5 @@ class Fooer extends Component {
 
         )
     }
-}
+} 
 export default Fooer;

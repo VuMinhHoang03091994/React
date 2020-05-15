@@ -4,13 +4,34 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 //b1 tạo fide json
-const data =[{ban:1,douong:"Cafe đen",soluong:3,isDelete:false,isPayed:false},
-              {ban:2,douong:"Cafe sữa",soluong:3,isDelete:false,isPayed:false},
-              {ban:3,douong:"Trà sữa",soluong:3,isDelete:false,isPayed:false}]
+const data_index =[
+  {
+    ban:1,
+    douong:'Cafe đen',
+    soluong:3,
+    isDelete:false,
+    isPayed:false,
+  },
+  {
+    ban:2,
+    douong:'Cafe sữa',
+    soluong:3,
+    isDelete:false,
+    isPayed:false,
+  },
+  {
+    ban:3,
+    douong:'Trà sữa',
+    soluong:3,
+    isDelete:false,
+    isPayed:false,
+  },
+];
 
 ReactDOM.render(
   <React.StrictMode>
-    <App data={data} />
+    {/*b2 truyền dữ liệu từ  data_index vào data_app*/}
+    <App data_app={data_index} />
   </React.StrictMode>,
   document.getElementById('root')
 );

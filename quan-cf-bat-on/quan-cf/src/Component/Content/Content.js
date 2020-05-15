@@ -5,71 +5,80 @@ class Content extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            trangthai:0
+            data:[]
         }
+        //b6 tạo ref để lưu giá trị
+        this.ban = React.createRef()
+        this.douong = React.createRef()
+        this.soluong = React.createRef()
     }
-    // renderButton = ()=>(
-    //         <div className="row">
-    //             <div className="btn btn-group">
-    //                 <div className="btn btn-info" onClick={()=> this.editClick()}>Edit</div>
-    //                 <div className="btn btn-warning" onClick={this.thongbao2}>Remove</div>
-    //             </div>
-    //         </div>
-    //     )
-    // dấu ngoặc tròn thay thế cho {} + return 
-    // renderForm = ()=>(
-    //     <div classname="row">
-    //         <div className="form-group">
-    //             {/* thuộc tính defaultValue lấy giữ liệu khi chỉnh sửa .....
-    //             thuộc tinhd ref là biến để lưu giá trị trung gian......
-    //             */}
-    //             <input ref={(dulieunhap) => {this.trunggian = dulieunhap}} defaultValue={this.props.tieude} type="text" name="ten" id className="form-control" />
-    //         </div>
-    //         <div className="form-group">
-    //             <button className="btn btn-success" onClick={()=> this.saveClick()}>Save</button>
-    //         </div>
-    //     </div>
-    // )
-    // displayCheck = ()=>{
-    //     if(this.state.trangthai === 0){
-    //         return this.renderButton();
-    //     }
-    //     else return this.renderForm();
-    // }
-    // editClick = ()=>{
-    //     this.setState({trangthai:1});
-    // }
-    // saveClick = ()=>{
-    //     this.setState({trangthai:0});
-    //     console.log(this.trunggian.value);
-    // }
-    
+    //hiện ra thông báo khi click vào button ORDER LIST
+    thongbao_od_list  = ()=>{alert("Hiện chưa có ORDER LIST");}
+    // b4 truyền dữ liệu từ data_content vào setState, chạy sau khi hàm render chạy, setState...
+    componentDidMount(){
+        this.setState({data: this.props.data_content})
+    }
+    //b8 viết hàm xử lí sự kiện nút bấm đặt bàn
+    addOrder = ()=>{
+        //lấy giá trị nhập vào
+        const ban = this.ban.current.value;
+        const douong = this.douong.current.value;
+        const soluong = this.soluong.current.value;
+        this.setState({data:[//b9 trải đều các phầm tử trong mảng
+            //thêm phần tử vào mảng
+            {ban:ban,
+            douong:douong,
+            soluong:soluong,
+            isDelete:false,
+            isPayed:false},
+            ...this.state.data
+        ]})
+    }
+    componentDidUpdate(){
+        console.log("aaaa",this.props.data_content);
+    }
     render() {
+        const {data} = this.state;
         return (
+            <div>
+            {/* phần header */}
+            <header className="masthead text-center text-white">
+                <div className="masthead-content">
+                    <div className="container">
+                        <h2 className="masthead-heading mb-0">Trăm nghe không bằng một thấy</h2>
+                        <h3 className="masthead-subheading mb-0">Trăm thấy không bằng một thử</h3>
+                        <a href="#" className="btn btn-primary btn-xl rounded-pill mt-5" onClick={()=> this.thongbao_od_list()}>ORDER LIST</a>
+                    </div>
+                </div>
+            </header>
+            {/* end phần header */}
+            {/* phần content */}
+            <div className="container-buld">
             <div className="container content">
-                <div classname="row">
+                <div className="row">
                     <div className="col-6 col-sm-12 col-md-12">
                         <table className="table">
                             <thead className="bang_user">
                                 <tr>
                                     <th>Bàn</th>
                                     <th>Đồ uống</th>
-                                    <th>Số lượng</th>
+                                    <th>Số lượng</th> 
                                 </tr>
                             </thead>
                             <tbody className="bang_user_a">
                                 <tr>
-                                    <td><div className="form-group">
-                                        <input type="text" placeholder="Bàn số"/>
+                                    <td><div className="form-group"> 
+                                        {/* b7 thêm  ref={this.ban} để gán giá trị từ value và ref*/}
+                                        <input ref={this.ban} type="text" placeholder="Bàn số"/>
                                     </div></td>
                                     <td><div className="form-group">
-                                        <input type="text" placeholder="Đồ uống"/>
+                                        <input ref={this.douong} type="text" placeholder="Đồ uống"/>
                                     </div></td>
                                     <td><div className="form-group">
-                                        <input type="text" placeholder="Số lượng"/>
+                                        <input ref={this.soluong} type="text" placeholder="Số lượng"/>
                                     </div></td>
                                     <td>
-                                        <button type="submit" className="btn btn-info">Đặt bàn</button>
+                                        <button type="submit" className="btn btn-info" onClick={this.addOrder}>Đặt bàn</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -78,7 +87,7 @@ class Content extends Component {
                 </div>
                 {/* //////   */}
                 <h1 className="Danh_sach_ban">Danh sách bàn</h1>
-                <div classname="row">
+                <div className="row">
                 <div className="col-6 col-sm-12 col-md-12">
                     <table className="table">
                         <thead className="bang_user">
@@ -88,51 +97,35 @@ class Content extends Component {
                                     <th>Số lượng</th>
                                 </tr>
                             </thead>
-                        <tr>
-                            <td>1</td> 
-                            <td>Cafe đen</td>
-                            <td>4</td>
-                            <td>
-                                <div className="row">
-                                    <div className="btn btn-group">
-                                        <div className="btn btn-primary">Edit</div>
-                                        <div className="btn btn-info">Pay</div>
-                                        <div className="btn btn-danger">Delete</div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td> 
-                            <td>Cafe sữa</td>
-                            <td>2</td>
-                            <td>
-                                <div className="row">
-                                    <div className="btn btn-group">
-                                        <div className="btn btn-primary">Edit</div>
-                                        <div className="btn btn-info">Pay</div>
-                                        <div className="btn btn-danger">Delete</div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td> 
-                            <td>Cafe đen</td>
-                            <td>4</td>
-                            <td>
-                                <div className="row">
-                                    <div className="btn btn-group">
-                                        <div className="btn btn-primary">Edit</div>
-                                        <div className="btn btn-info">Pay</div>
-                                        <div className="btn btn-danger">Delete</div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                        <tbody>
+                            {/* b5 Hàm map giống như vòng lặp. Mỗi lần lặp là truyền nguyên một phần tử (item)
+                            của mảng vào hàm map...
+                            */}
+                            {data.map((item,index)=>{
+                                return (
+                                <tr key={index}>
+                                    <td>{item.ban}</td> 
+                                    <td>{item.douong}</td>
+                                    <td>{item.soluong}</td>
+                                    <td>
+                                        <div className="row">
+                                            <div className="btn btn-group">
+                                                <div className="btn btn-primary">Edit</div>
+                                                <div className="btn btn-info">Pay</div>
+                                                <div className="btn btn-danger">Delete</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>)
+                            })}
+                            
+                        </tbody>
                     </table>
                 </div>
             </div>
+        </div>
+        </div>
+        {/* end phần content */}
         </div>
         )
     }

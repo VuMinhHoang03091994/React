@@ -2,40 +2,21 @@ import React,{Component} from 'react';
 import TopMenu from './Component/TopMenu/TopMenu.js';
 // import logo from './logo.svg';
 import './App.css';
-import Header from './Component/Header/Header.js';
 import Content from './Component/Content/Content.js';
 import Footer from './Component/Footer/Footer.js';
-
+import Payed from './Component/Payed/Payed.js';
+import Trash from './Component/Trash/Trash.js';
+import DieuHuongURL from './Router/DieuHuongURL.js';
+import {BrowserRouter as Router } from 'react-router-dom';
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      listData:[],
-    }
-  }
-  //b2 gọi lại từ index
-  componentDidMount(){
-      this.setState({listData: this.props.data});
-    console.log("hahah",this.state.listData);
-  };
   render() {
     return (
       <div className="013">
+      <Router>
         <TopMenu/>
-        <Header/>
-        <div className="container-buld">
-            <Content></Content>
-              {/* <Content tieude="Cách sử dụng props bằng class"  anh="img/4.jpg" noidung="nội dung 1"/>
-              <Content tieude="Cách sử dụng props bằng class" anh="img/5.jpg" noidung="nội dung 2"/>
-              <Content tieude="Cách sử dụng props bằng class"  anh="img/6.jpg" noidung="nội dung 3"/>
-              <Content tieude="Cách sử dụng props bằng class"  anh="img/4.jpg" noidung="nội dung 1"/>
-              <Content tieude="Cách sử dụng props bằng class" anh="img/5.jpg" noidung="nội dung 2"/>
-              <Content tieude="Cách sử dụng props bằng class"  anh="img/6.jpg" noidung="nội dung 3"/>
-              <Content tieude="Cách sử dụng props bằng class"  anh="img/4.jpg" noidung="nội dung 1"/>
-              <Content tieude="Cách sử dụng props bằng class" anh="img/5.jpg" noidung="nội dung 2"/>
-              <Content tieude="Cách sử dụng props bằng class"  anh="img/6.jpg" noidung="nội dung 3"/> */}
-        </div>
+          <DieuHuongURL data_dieuhuong = {this.props.data_app}/>
         <Footer/>
+      </Router>  
       </div>
     )
   }
