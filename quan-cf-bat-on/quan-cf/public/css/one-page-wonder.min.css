@@ -192,4 +192,12 @@ header.masthead .masthead-content .masthead-subheading{font-size:4rem}}
 .w-100{
   height: 631px;
 }
+
 /* end slide */
+
+
+/* chữ đổ giá tiền */
+.giaCafe_red{
+  color: red;
+}
+/* end chữ đỏ */
