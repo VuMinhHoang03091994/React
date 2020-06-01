@@ -7,7 +7,7 @@ const Navbar = () => {
       <Brand>TodoList</Brand>
       <NavList>
         <Item trash>Trash</Item>
-        <Item>Login</Item>
+        <Item>Logout</Item>
       </NavList>
     </Wrapper>
   );
@@ -39,7 +39,7 @@ const NavList = styled.ul`
 `;
 const Item = styled.li`
   color: ${(props) => (props.trash ? 'red' : 'yellow')};
-  margin-right: 10px;
+  margin-right: 30px;
   &:hover {
     opacity: 0.7;
   }

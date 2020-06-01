@@ -16,7 +16,7 @@ const TaskList = (props) => {
           setCompleted={props.setCompleted}
           setDeleted={props.setDeleted}
           editTodo={props.editTodo}
-        />
+        /> 
       ))}
     </TaskItem>
   );

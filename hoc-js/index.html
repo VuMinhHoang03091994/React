@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+    <h1>BÀI HỌC ĐẦU TIÊN</h1>
+
+    <div id="demo">
+        <p id="demo-1">the p1</p>
+        <p class="theP2">ther p2</p>
+        <p class="theP3">p3</p>
+        <p class="theP4">p4</p>
+        <hr>
+    </div>
+    <hr>
+    <p>click vào đây để hiển thị 1 đoạn text</p>
+    <button onclick="btnClick()">Cick</button>
+    <button onclick="myFunction()">documentURI</button>
+    <hr>
+    <script>
+        function myFunction() {
+        var x = document.documentURI;
+        document.getElementById("demo").innerHTML = x;
+        }
+        //
+
+        
+        document.designMode = "on"; //làm cho toàn bộ tài liệu cs thể chỉnh sửa
+        //
+        var btnClick = () => {
+            
+            var a = document.createTextNode("hello js ");
+            document.body.appendChild(a);
+        }
+
+        //
+        document.getElementById("demo-1").innerHTML="<p>WELCOME TO JS</p>";//gọi thông qua id
+        //
+
+        /*thuộc tính getElementsByTagName thay đổi all thẻ p
+        var x = document.getElementsByTagName("p");
+        for(let i=0;i<x.length;i++){
+            x[i].innerHTML="ndnndndd";
+        }
+        */
+
+
+        // var y= document.getElementsByClassName("theP2");// gọi thông qua class
+        // y[0].innerHTML ="thẻppp2";
+
+
+        /*
+        var y =document.getElementsByClassName("theP2")[0];
+        y.style.color="red"; //đổi qua màu đỏ
+        y.setAttribute("style","font-size:100px");
+        console.log(y)
+        */
+        /*
+         var newElement = document.createElement("p")// tạo mới thẻ p
+         newElement.innerText="xxx";// thêm giá trị
+         document.body.appendChild(newElement);//Thêm một yếu tố HTML
+        document.write("<hr>");
+
+        var na=document.getElementsByTagName("p")[0];// 
+        console.log(na)
+        na.remove();
+
+        let d = document.getElementById('demo');
+        let d_child= document.getElementsByTagName("p");
+        console.log("tesst",d.removeChild(d_child[1]))
+        */
+
+        
+    </script>
+</body>
+</html>

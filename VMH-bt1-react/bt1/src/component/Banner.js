@@ -14,7 +14,7 @@ const BannerWrapper = styled.div`
   margin-bottom: 1.2rem;
   background-color: ${(props) => (props.completed ? 'red' : 'yellow')};
   width: min(90%, 350px);
-  height: 30px;
+  height: 50px;
   opacity: 0.8;
 `;
 export default Banner;

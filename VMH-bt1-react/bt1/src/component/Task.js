@@ -68,7 +68,7 @@ const TodoLable = styled.label`
   width: 100%;
   max-width: 80%;
   margin-right: auto;
-  margin-left: 4px;
+  margin-left: 7px;
   line-height: 1rem;
   border: none;
 `;
